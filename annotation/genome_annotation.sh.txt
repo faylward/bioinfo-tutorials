@@ -1,0 +1,19 @@
+
+
+# Today we will be using a tool called HMMER3 to annotate genes in a genome. 
+# We will be discussing Hidden Markov Models (HMMs). The HMMs that we go over today will be present in the file cog_hmms.hmm
+# The descriptions of these models can be found in cog_descriptions.txt
+
+# HMMs are models that allow us to compare a protein to a profile of other proteins rather than just individual proteins. 
+# This is useful if we want to know if a protein belongs to a certain protein family. For example, we may wish to know if a protein is an RNA polymerase. We don't necessarily care which RNA polymerse it is most similar to, we just want to know if the protein belongs to that general family. This is useful for functional annotations. 
+
+# First step, install HMMER:
+sudo apt install hmmer
+
+hmmsearch --tblout med4.hmmout -o med4.output cog_hmms.hmm med4_genome.faa
+
+# The main output we want is in med4.hmmout. Unfortunately the authors made the output space-delimited, so it's a bit painful to look at. 
+# I made a small Python script that will parse this output and make it into a simpler format. 
+python parse_hmmout.py med4.hmmout > med4.hmmout.parsed
+
+# Now we should have the best hit for each protein, followed by the HMM that it hit to and the score. 

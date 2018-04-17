@@ -1,0 +1,6 @@
+ENOG410XPX5 Reaction center photosystem protein II (psbA)
+ENOG41114F Ammonia monooxygenase, subunit A
+COG0085	RNA Polymerase, beta subunit
+COG0086	RNA Polymerase, alpha subunit
+COG0197	Ribosomal protein L1
+COG1348	Nitrogenase nifH subunit
